@@ -1,0 +1,138 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="text-center">Register</h3>
+        </div>
+        <div class="card-body">
+          @if (isLogin) {
+            <form #loginForm="ngForm">
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input
+                  type="text"
+                  id="username"
+                  class="form-control"
+                  name="username"
+                  [(ngModel)]="register.userName"
+                  required
+                  #usernameInput="ngModel"
+                />
+                <div *ngIf="usernameInput.invalid && usernameInput.touched" class="text-danger">
+                  Username is required.
+                </div>
+              </div>
+  
+              <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input
+                  type="text"
+                  id="fullName"
+                  class="form-control"
+                  name="fullName"
+                  [(ngModel)]="register.fullName"
+                  required
+                  #fullNameInput="ngModel"
+                />
+                <div *ngIf="fullNameInput.invalid && fullNameInput.touched" class="text-danger">
+                  Full Name is required.
+                </div>
+              </div>
+  
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control"
+                  name="email"
+                  [(ngModel)]="register.emailId"
+                  required
+                  #emailInput="ngModel"
+                />
+                <div *ngIf="emailInput.invalid && emailInput.touched" class="text-danger">
+                  Valid email is required.
+                </div>
+              </div>
+  
+              <div class="form-group">
+                <label for="role">Role</label>
+                <input
+                  type="text"
+                  id="role"
+                  class="form-control"
+                  name="role"
+                  [(ngModel)]="register.role"
+                  required
+                  #roleInput="ngModel"
+                />
+                <div *ngIf="roleInput.invalid && roleInput.touched" class="text-danger">
+                  Role is required.
+                </div>
+              </div>
+  
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  class="form-control"
+                  name="password"
+                  [(ngModel)]="register.password"
+                  required
+                  #passwordInput="ngModel"
+                />
+                <div *ngIf="passwordInput.invalid && passwordInput.touched" class="text-danger">
+                  Password is required.
+                </div>
+              </div>
+  
+              <button type="submit" class="btn btn-primary btn-block" [disabled]="loginForm.invalid" (click)="registerUser()">
+                Register
+              </button>
+            </form> 
+          } @else {
+            <form #loginForm="ngForm">
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input
+                  type="text"
+                  id="username"
+                  class="form-control"
+                  name="username"
+                  [(ngModel)]="loginObj.userName"
+                  required
+                  #usernameInput="ngModel"
+                />
+              </div>
+  
+
+  
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  class="form-control"
+                  name="password"
+                  [(ngModel)]="loginObj.password"
+                  required
+                  #passwordInput="ngModel"
+                />
+                <div *ngIf="passwordInput.invalid && passwordInput.touched" class="text-danger">
+                  Password is required.
+                </div>
+              </div>
+  
+              <button type="submit" class="btn btn-primary btn-block" [disabled]="loginForm.invalid" (click)="loginUser()">
+                Register
+              </button>
+            </form>
+          }
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
