@@ -1,0 +1,11 @@
+li{
+    list-style: none;
+
+}
+.card{
+    justify-content: space-between;
+}
+i{
+    font-size: 30px;
+    color: blueviolet;
+}

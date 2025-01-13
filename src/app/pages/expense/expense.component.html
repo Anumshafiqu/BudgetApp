@@ -1,1 +1,97 @@
-<p>expense works!</p>
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-6">
+          <h4>expense</h4>
+        </div>
+        <div class="col-6 text-end">
+          <button class="btn btn-primary" (click)="openmodel()">Add New</button>
+        </div>
+      </div>
+    <div class="row">
+        <div class="col-12 mt-4">
+            <ul>
+                <!-- <li>{{$index+1 }}</li> -->
+                <li>new Category</li>
+                <li>$20000</li>
+                <li>
+                    <button class="btn btn-warning">Edit</button>
+                    <button class="btn btn-danger mx-2">Delete</button>
+                </li>
+            </ul>
+            <ul *ngFor="let item of CategoryList ; index as i">
+                <!-- <li>{{$index+1 }}</li> -->
+                <li>{{item.categoryName}}</li>
+                <li>${{item.amount}}</li>
+                <li>
+                    <button class="btn btn-warning">Edit</button>
+                    <button class="btn btn-danger mx-2">Delete</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Add Transaction</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <form #transactionForm="ngForm">
+            <div class="mb-3">
+              <label for="amount" class="form-label">Amount</label>
+              <input
+                type="number"
+                class="form-control"
+                id="amount"
+                [(ngModel)]="transctionObj.amount"
+                name="amount"
+                placeholder="Enter amount"
+                required
+              />
+            </div>
+  
+            <div class="mb-3">
+              <label for="category" class="form-label">Category</label>
+              <select
+                class="form-select"
+                [(ngModel)]="transctionObj.categoryId"
+                name="categoryId"
+                required
+              >
+                <option value="">Select Category</option>
+                <option *ngFor="let item of CategoryList" [value]="item.categoryId">
+                  {{ item.categoryName }}
+                </option>
+              </select>
+            </div>
+  
+            <div class="mb-3">
+              <label for="purpose" class="form-label">Purpose</label>
+              <textarea
+                class="form-control"
+                id="purpose"
+                [(ngModel)]="transctionObj.purpose"
+                name="purpose"
+                rows="3"
+                placeholder="Enter purpose"
+                required
+              ></textarea>
+            </div>
+          </form>
+        </div>
+  
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="saveTransaction()">Save</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,1 +1,106 @@
-<p>dashboard works!</p>
+<!-- 
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <ul class="card">
+                <li>
+                    <i class="fa fa-suitcase" aria-hidden="true"></i>
+                    <span>
+                        <h3>${{dashBoardData?.totalIncome}}</h3>
+                        <p>budget</p>
+                    </span>
+                </li>
+                <li>
+                    <i class="fa fa-suitcase" aria-hidden="true"></i>
+                    <span>
+                        <h3>${{dashBoardData?.totalExpense}}</h3>
+                        <p>Expense</p>
+                    </span>
+                </li>
+                <li>
+                    <i class="fa fa-suitcase" aria-hidden="true"></i>
+                    <span>
+                        <h3>${{dashBoardData?.netIncome}}</h3>
+                        <p>amont</p>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <label for="">From Data</label>
+            <input type="date" class="form-control" [(ngModel)]="fromDate" >
+        </div>
+        <div class="col-3">
+            <label for="">To Data</label>
+            <input type="date" class="form-control" [(ngModel)]="toDate">
+        </div>
+        <div class="col-3">
+            <button class="btn btn-success" (click)="getdashboardData()">search</button>
+        </div>
+    </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<div class="container">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-xxl-8 col-lg-8 col-md-8 col-sm-12">
+        <div class="card d-flex flex-row border-0 shadow-sm p-3 mt-3">
+          <div class="d-flex align-items-center mb-3 me-3">
+            <i class="fa fa-suitcase me-3" aria-hidden="true"></i>
+            <span class="mt-4">
+              <h3>${{ dashBoardData?.totalIncome || 0 }}</h3>
+              <p>Budget</p>
+            </span>
+        </div>
+          <div class="d-flex align-items-center mb-3 me-3">
+            <i class="fa fa-suitcase me-3" aria-hidden="true"></i>
+            <span class="mt-4">
+              <h3>${{ dashBoardData?.totalExpense || 0 }}</h3>
+              <p>Expense</p>
+            </span>
+        </div>
+          <div class="d-flex align-items-center mb-3">
+            <i class="fa fa-suitcase me-3" aria-hidden="true"></i>
+            <span class="mt-4">
+              <h3>${{ dashBoardData?.netIncome || 0 }}</h3>
+              <p>Net Income</p>
+            </span>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-center align-items-center mt-4 mx-2">
+      <div class="col-3">
+        <label for="fromDate">From Date</label>
+        <input type="date" id="fromDate" class="form-control" [(ngModel)]="fromDate" />
+      </div>
+      <div class="col-3">
+        <label for="toDate">To Date</label>
+        <input type="date" id="toDate" class="form-control" [(ngModel)]="toDate" />
+      </div>
+      <div class="col-2 d-flex mt-3">
+        <button class="btn btn-success" (click)="getdashboardData()">Search</button>
+      </div>
+      <div class="col-2 d-flex mt-3 mx-2">
+        <button class="btn btn-danger" (click)="clearLocalStorage()">Clear Data</button>
+      </div>
+    </div>
+  </div>
+  

@@ -8,7 +8,7 @@ import { Observable, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class MasterService {
-//  apiURL:string='https://projectapi.gerasim.in/api/BudgetPlanner/';
+  apiURL:string='https://projectapi.gerasim.in/api/BudgetPlanner/';
    constructor(private http:HttpClient){}
 //   createobj(obj:any){
 //     return this.http.post(`${this.apiURL}AddNewUser` , obj);
@@ -44,6 +44,9 @@ loginUser(username: string, password: string): boolean {
   return users.some(
     (user) => user.userName === username && user.password === password
   );
+}
+getDashboardData(userId:number,fromDate : string ,toDate:string ){
+  return this.http.get(`${this.apiURL}GetDashboardData?userId=${userId}&fromDate=${fromDate}&toDate=${toDate}`)
 }
 
 
